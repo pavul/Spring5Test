@@ -1,0 +1,59 @@
+
+apply plugin:"java"
+apply plugin:"war"
+
+
+archivesBaseName = "gradletest"
+version = "0"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+   mavenCentral()
+}
+
+
+
+dependencies {
+    
+    
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
+
+    
+    //neo4j embedded
+    compile "org.neo4j:neo4j:3.3.1"
+    
+
+    //ne4j driver
+    compile group: 'org.neo4j.driver', name: 'neo4j-java-driver', version: '1.5.0'
+
+    
+    //spring 5
+    compile('org.springframework:spring-webmvc:5.0.1.RELEASE')
+    compile group: 'org.springframework', name: 'spring-context', version: '5.0.1.RELEASE'
+    
+  //dependencias de log4j
+//    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.5'
+//    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.5'
+//   
+//    compile group: 'com.pi4j', name: 'pi4j-core', version: '1.1'
+   
+    
+  //framework de hibernate
+//  compile 'org.hibernate:hibernate-core:5.1.0.Final'
+  
+    
+}
+
+
+
+/* /customs tasks below:
+task printHello{
+    print("Hello from task");
+    
+}
+
+*/

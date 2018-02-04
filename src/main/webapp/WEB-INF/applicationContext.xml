@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <mvc:annotation-driven />
+    
+    <!--<context:component-scan base-package="springtest.*, me.example" />--> 
+    <context:component-scan base-package="springtest.*" /> 
+    
+<!--    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/jdbc.properties" />-->
+
+<!--<bean 
+    id="dataSource"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${jdbc.driverClassName}" />
+    <property name="url" value="${jdbc.url}" />
+    <property name="username" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" />
+</bean>-->
+
+    <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
+<!--<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+    <property name="packagesToScan" value="me.example.hbm" />
+     <property name="hibernateProperties">
+       <props>
+            <prop key="hibernate.default_schema">${defaultschema}</prop>
+            <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+            <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+       </props>
+     </property>
+     <property name="mappingResources">
+            <list>
+                <value>mappings/Auth.hbm.xml</value>
+                <value>mappings/Game.hbm.xml</value>
+                <value>mappings/GameAchievement.hbm.xml</value>
+                <value>mappings/GameAchievementGained.hbm.xml</value>
+                <value>mappings/GamePresent.hbm.xml</value>
+                <value>mappings/GamePresentWorn.hbm.xml</value>
+                <value>mappings/GameRecordScore.hbm.xml</value>
+                <value>mappings/GameSavedData.hbm.xml</value>
+                <value>mappings/GameStore.hbm.xml</value>
+                <value>mappings/GameStoreItem.hbm.xml</value>
+                <value>mappings/LinkedPlayer.hbm.xml</value>
+                <value>mappings/User.hbm.xml</value>
+                <value>mappings/UserType.hbm.xml</value>
+            </list>
+     </property>
+</bean>-->
+    
+    
+<!--   <bean id="transactionManager"
+    class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+      <property name="sessionFactory" ref="sessionFactory" />
+   </bean>-->
+   
+   
+   
+   <!--bean para base Dao-->
+   <!--se le inyecta la sessionfactory-->
+<!--   <bean
+       id = "baseDao"
+       class = "com.ilusion.dao.BaseDaoImpl"
+   >
+       <property name="sessionFactory" ref="sessionFactory" />
+   </bean>-->
+    
+   
+    <!--bean para el bssImpl-->
+    <!--se le inyecta baseDao--> 
+    <!--game bss-->
+<!--    <bean
+       id = "gameBss"
+       class = "me.example.bss.GameBssImpl"
+   >
+       <property name="baseDao" ref="baseDao" />
+   </bean>-->
+    
+    
+    <!--game achievement bss-->
+<!--    <bean
+       id = "gameAchievementBss"
+       class = "me.example.bss.GameAchievementBssImpl"
+   >
+       <property name="baseDao" ref="baseDao" />
+   </bean>-->
+    
+    
+    <!--game present bss-->
+<!--    <bean
+       id = "gamePresentBss"
+       class = "me.example.bss.GamePresentBssImpl"
+   >
+       <property name="baseDao" ref="baseDao" />
+   </bean>-->
+    
+   
+   <!--game present bss-->
+<!--    <bean
+       id = "gameStoreBss"
+       class = "me.example.bss.GameStoreBssImpl"
+   >
+       <property name="baseDao" ref="baseDao" />
+   </bean>-->
+    
+   
+   <!--game present bss-->
+<!--    <bean
+       id = "gameStoreItemBss"
+       class = "me.example.bss.GameStoreItemBssImpl"
+   >
+       <property name="baseDao" ref="baseDao" />
+   </bean>-->
+    
+      
+      <!--el validador para todas las clases-->
+<!--    <bean
+       id = "easyValidator"
+       class = "com.mexicode.EasyValidator"
+   >
+       <property name="locale"  value="es"  />
+       <property name="debug"   value="true"  />
+   </bean>
+   -->
+   
+    
+</beans>

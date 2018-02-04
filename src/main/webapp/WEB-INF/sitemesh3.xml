@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+archivo de configuracion de los paths de sitemesh
+-->
+<sitemesh>
+  
+  <!--decoradores para el admin-->
+  <!--<mapping path="/admin/*" decorator="/WEB-INF/jsp/decorators/admin-decorator.jsp"/>-->
+  
+  <!--decoradores para el admin #2-->
+  <mapping path="/admin/*" decorator="/WEB-INF/jsp/decorators/admin2-decorator.jsp"/>
+  
+      
+  <!--<mapping path="/*" decorator="/WEB-INF/jsp/decorators/xample-decorator.jsp"/>-->
+  <mapping path="/*" decorator="/WEB-INF/jsp/decorators/main-decorator.jsp"/>
+  
+  
+  <!--exluir las rutas con sitemesh-->
+   <mapping path = "/admin/login.html" exclue = "true" />
+  
+</sitemesh>
