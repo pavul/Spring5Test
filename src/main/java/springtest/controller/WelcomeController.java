@@ -6,6 +6,7 @@
 package springtest.controller;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import org.neo4j.driver.v1.AuthTokens;
 import org.neo4j.driver.v1.Driver;
@@ -13,6 +14,7 @@ import org.neo4j.driver.v1.GraphDatabase;
 import org.neo4j.driver.v1.Record;
 import org.neo4j.driver.v1.Session;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,12 +24,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class WelcomeController
 {
     
-    
-    
-    
-    
     @RequestMapping(value = "/home", method = RequestMethod.GET )
-    public String home() 
+    public String home( Model model ) 
     {
         
         Driver driver = null;
@@ -40,17 +38,32 @@ public class WelcomeController
                     session.run( "match(b:Book) return properties(b) as book" ).list();
             
             
-            recordList.stream().forEach( r ->
-            {
-                System.err.println(" Elem: "+r.get( "book" ).get( "title" )  );
-            });
+//            model.addAttribute("recordList", recordList );
+            model.addAttribute("name", "JOHN" );
+            
+
+            
+//            recordList.stream().forEach( r ->
+//            {
+//                System.err.println(" Elem: "+r.get( "book" ).get( "title" )  );
+//            });
             
             
         }//
         
+          List<String> nameList = new ArrayList<>();
+  
+  nameList.add( "name1" );
+  nameList.add( "name2" );
+  nameList.add( "name3" );
+            
+            model.addAttribute( "nameList" ,nameList );
+            
         
         System.err.println("entrando a welcome cotroller HOMe");
-        return "home";
+        
+        
+        return "home.html";
     }
     
     

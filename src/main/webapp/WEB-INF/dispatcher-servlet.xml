@@ -96,11 +96,36 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
 
 
 <!--view resolver-->
-    <bean id="viewResolver"
+
+<!--SRING LEGACY VIEW RESOLVER-->
+<!--    <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp" 
-    />
+    />-->
+    
+    <!--THYMELEAF VIEW RESOLVER NEW-->
+<!-- Thymeleaf View Resolver - implementation of Spring's ViewResolver interface -->
+    <bean id="viewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine" />
+        <property name="characterEncoding" value="UTF-8" />
+    </bean>
+    
+    <!-- Thymeleaf Template Engine (Spring4-specific version) -->
+    <bean id="templateEngine" class="org.thymeleaf.spring5.SpringTemplateEngine">
+        <property name="templateResolvers">
+            <set>
+                <ref bean="templateResolver" />
+            </set>
+        </property>
+    </bean>
+    
+    <!-- Thymeleaf Template Resolver -->
+    <bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+        <property name="prefix" value="/WEB-INF/templates/" />
+        <property name="templateMode" value="HTML" />
+    </bean>
+    
     
     <!--multipart resolver-->
     <!--this bean allow upload images to server-->
@@ -147,7 +172,7 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
 <!--    <bean 
   class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />-->
     
-    <!--aqui van los beans que se mapearan exmplicitamente-->
+    <!--CRACION DE CONTROLADORES-->
     <bean 
     id="welcomecontroller"
     class="springtest.controller.WelcomeController"
