@@ -176,7 +176,9 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
     <bean 
     id="welcomecontroller"
     class="springtest.controller.WelcomeController"
-    />
+    >
+      <property name="personBss" ref="personBss"  /> 
+    </bean>
     
 <!--    <bean 
     id="homecontroller"
@@ -361,6 +363,25 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
     
     </bean>
     -->
+    
+    
+    
+    <!--INYECCION DE DEPENDENCIAS-->
+    
+    <bean
+    id="personDao"
+    class="springtest.controller.dao.PersonDaoImpl"
+    >
+    </bean>
+    
+   
+    <bean
+    id="personBss"
+    class="springtest.controller.bss.PersonBssImpl"
+    >
+        <property name="personDao" ref="personDao"  /> 
+    </bean> 
+    
     
     
     

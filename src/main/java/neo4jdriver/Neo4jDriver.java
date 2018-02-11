@@ -6,9 +6,6 @@
 package neo4jdriver;
 
 import java.net.URI;
-import org.neo4j.driver.v1.AuthTokens;
-import org.neo4j.driver.v1.Driver;
-import org.neo4j.driver.v1.GraphDatabase;
 
 /**
  *
@@ -18,25 +15,25 @@ public class Neo4jDriver
 {
    
     
-    public static Driver neoDriver;
-    
-    private Neo4jDriver(){};
-    
-    
-    public static Driver getInstance( URI uri, String user, String pass)
-    {
-        if( neoDriver == null )
-        {
-        neoDriver = GraphDatabase.driver(uri, AuthTokens.basic( user, pass ) );  
-        }
-    
-        return neoDriver;
-    }
-   
-    public static void close()
-    {
-        neoDriver.close();
-    }
+//    public static Driver neoDriver;
+//    
+//    private Neo4jDriver(){};
+//    
+//    
+//    public static Driver getInstance( URI uri, String user, String pass)
+//    {
+//        if( neoDriver == null )
+//        {
+//        neoDriver = GraphDatabase.driver(uri, AuthTokens.basic( user, pass ) );  
+//        }
+//    
+//        return neoDriver;
+//    }
+//   
+//    public static void close()
+//    {
+//        neoDriver.close();
+//    }
     
     
     
