@@ -178,6 +178,8 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
     class="springtest.controller.WelcomeController"
     >
       <property name="personBss" ref="personBss"  /> 
+      <property name="bookMBss" ref="bookMBss"  /> 
+
     </bean>
     
 <!--    <bean 
@@ -379,10 +381,19 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
     id="personBss"
     class="springtest.controller.bss.PersonBssImpl"
     >
-        <property name="personDao" ref="personDao"  /> 
+        <property name="personDao" ref="personDao" /> 
     </bean> 
     
-    
-    
+    <!-->BOOK M<-->
+    <bean
+    id="bookMDao"
+    class="springtest.controller.dao.BookMDaoImpl" >
+    </bean>
+
+    <bean
+    id="bookMBss"
+    class="springtest.controller.bss.BookMBssImpl" >
+        <property name="bookMDao" ref="bookMDao" /> 
+    </bean> 
     
 </beans>

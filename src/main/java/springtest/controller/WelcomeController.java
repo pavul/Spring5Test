@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import springtest.controller.bss.PersonBss;
+import springtest.controller.bss.BookMBss;
 
 @Controller
 public class WelcomeController
@@ -21,7 +22,11 @@ public class WelcomeController
     public void setPersonBss(PersonBss personBss) {
         this.personBss = personBss;
     }
-    
+
+    private BookMBss bookMBss;
+    public void setBookMBss(BookMBss bookMBss) {
+        this.bookMBss = bookMBss;
+    }
     
     
     
@@ -36,7 +41,7 @@ public class WelcomeController
 //        {
 //        
 //            List<Record> recordList =
-//                    session.run( "match(b:Book) return properties(b) as book" ).list();
+//                    session.run( "match(b:BookM) return properties(b) as book" ).list();
 //            
 //            
 ////            model.addAttribute("recordList", recordList );
@@ -65,6 +70,7 @@ public class WelcomeController
         
         
         model.addAttribute( "nombredeBSS" , personBss.getPerson().getName() );
+        model.addAttribute( "libroMdeBSS" , bookMBss.getBookM().getBookName() );
         
         return "home.html";
     }
