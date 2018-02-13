@@ -32,11 +32,11 @@ dependencies {
 
     
     //neo4j embedded
-    compile "org.neo4j:neo4j:3.3.1"
+    //compile "org.neo4j:neo4j:3.3.1"
     
 
     //ne4j driver
-    compile group: 'org.neo4j.driver', name: 'neo4j-java-driver', version: '1.5.0'
+    //compile group: 'org.neo4j.driver', name: 'neo4j-java-driver', version: '1.5.0'
 
     
     //spring 5
@@ -50,6 +50,8 @@ dependencies {
     // https://mvnrepository.com/artifact/junit/junit
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
+    //lombok
+    compile "org.projectlombok:lombok:1.16.16"
     
   //dependencias de log4j
   //    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.5'
