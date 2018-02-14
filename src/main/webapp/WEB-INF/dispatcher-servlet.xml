@@ -173,16 +173,7 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
 <!--    <bean 
   class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />-->
     
-    <!--CRACION DE CONTROLADORES-->
-    <bean 
-    id="welcomecontroller"
-    class="springtest.controller.WelcomeController"
-    >
-      <property name="personBss" ref="personBss"  /> 
-      <property name="bookMBss" ref="bookMBss"  /> 
-
-    </bean>
-    
+  
 <!--    <bean 
     id="homecontroller"
     class="me.xample.controller.HomeController"
@@ -369,19 +360,35 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
     
     
     
+    
+   
+    
+    
+    
     <!--INYECCION DE DEPENDENCIAS-->
+    
+    
+    <!--Driver connection to Neo4J database-->
+    <bean
+    id="neo4jDriver"
+    class="neo4jdriver.Neo4jDriver" >
+        <constructor-arg index="0" type="java.lang.String" value = "bolt://127.0.0.1:7687" />
+        <constructor-arg index="1" type="java.lang.String" value = "neo4j" />
+        <constructor-arg index="2" type="java.lang.String" value = "pass" />
+    </bean>
+    
     
     <bean
     id="personDao"
-    class="springtest.controller.dao.PersonDaoImpl"
-    >
+    class="springtest.controller.dao.PersonDaoImpl" >
+        <!--injecting neo4jDriver-->
+        <property name="neo4jDriver" ref="neo4jDriver" /> 
     </bean>
     
    
     <bean
     id="personBss"
-    class="springtest.controller.bss.PersonBssImpl"
-    >
+    class="springtest.controller.bss.PersonBssImpl" >
         <property name="personDao" ref="personDao" /> 
     </bean> 
     
@@ -396,5 +403,23 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
     class="springtest.controller.bss.BookMBssImpl" >
         <property name="bookMDao" ref="bookMDao" /> 
     </bean> 
+    
+    
+    
+       <!--CRACION DE CONTROLADORES-->
+    <bean 
+    id="welcomecontroller"
+    class="springtest.controller.WelcomeController"
+    >
+      <property name="personBss" ref="personBss"  /> 
+      <property name="bookMBss" ref="bookMBss"  /> 
+
+    </bean>
+    
+    
+    
+    
+    
+    
     
 </beans>

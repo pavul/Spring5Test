@@ -5,6 +5,8 @@
  */
 package springtest.controller.dao;
 
+import java.util.List;
+import org.neo4j.driver.v1.Record;
 import springtest.model.Person;
 
 /**
@@ -15,6 +17,8 @@ public interface PersonDao
 {
    
     public Person getPerson(String name);
+    
+    public List<Person>  getPersons();
     
     
 }//

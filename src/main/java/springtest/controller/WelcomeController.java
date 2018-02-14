@@ -5,8 +5,12 @@
  */
 package springtest.controller;
 
-import java.util.ArrayList;
+import java.net.URI;
 import java.util.List;
+import org.neo4j.driver.v1.AuthTokens;
+import org.neo4j.driver.v1.GraphDatabase;
+import org.neo4j.driver.v1.Record;
+import org.neo4j.driver.v1.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,20 +38,17 @@ public class WelcomeController
     public String home( Model model ) 
     {
         
-//        Driver driver = null;
-//        
-//        try( Session session = GraphDatabase.driver( URI.create( "bolt://10.0.0.17:7687" ) 
-//                        , AuthTokens.basic( "neo4j","pass" ) ).session() )
+        
+        //for LINUX NIGHTMARE
+//        try( Session session = GraphDatabase.driver( UGraphDatabaseRI.create( "bolt://10.0.0.17:7687" ) 
+//        try( Session session = GraphDatabase.driver( URI.create( "bolt://127.0.0.1:7687" ),
+//                                                     AuthTokens.basic( "neo4j","pass" ) ).session() )
 //        {
 //        
 //            List<Record> recordList =
 //                    session.run( "match(b:BookM) return properties(b) as book" ).list();
-//            
-//            
-////            model.addAttribute("recordList", recordList );
-//            model.addAttribute("name", "JOHN" );
-//            
-//
+//            model.addAttribute("recordList", recordList );
+//         
 //            
 ////            recordList.stream().forEach( r ->
 ////            {
@@ -68,6 +69,9 @@ public class WelcomeController
 //        
 //        System.err.println("entrando a welcome cotroller HOMe");
         
+        
+        
+        model.addAttribute("recordList", personBss.getPersons() );
         
         model.addAttribute( "nombredeBSS" , personBss.getPerson().getName() );
         model.addAttribute( "libroMdeBSS" , bookMBss.getBookM().getBookName() );
