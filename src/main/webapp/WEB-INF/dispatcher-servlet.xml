@@ -396,5 +396,17 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
     class="springtest.controller.bss.BookMBssImpl" >
         <property name="bookMDao" ref="bookMDao" /> 
     </bean> 
+	
+	<!-->BOOK<-->
+    <bean
+    id="bookDao"
+    class="springtest.controller.dao.BookDaoImpl" >
+    </bean>
+
+    <bean
+    id="bookBss"
+    class="springtest.controller.bss.BookBssImpl" >
+        <property name="bookDao" ref="bookDao" /> 
+    </bean> 
     
 </beans>
