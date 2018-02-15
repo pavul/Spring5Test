@@ -5,8 +5,11 @@
  */
 package springtest.controller.dao;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import neo4jdriver.Neo4jDriver;
 import org.neo4j.driver.v1.Record;
 import springtest.model.Person;
@@ -44,7 +47,7 @@ public class PersonDaoImpl implements PersonDao
     {
         List<Record> recordList =
                 neo4jDriver.getInstance()
-                        .run( "match( p:Person) return properties(p) as person" ).list();
+                        .run( "match( p:Person) return properties(p) as person" ).  list();
         
         List<Person> personList = new ArrayList<>();
         
@@ -60,5 +63,25 @@ public class PersonDaoImpl implements PersonDao
         
         return personList;
     }
+
+    @Override
+    public List<Map<String, Object>> getPersonsMap() 
+    {
+        
+        List<Map<String, Object>> list = new ArrayList<>();
+        
+         List<Record> recordList =
+                neo4jDriver.getInstance()
+                        .run( "match( p:Person) return properties(p) as person" ).  list();
+         
+         recordList.stream().forEach( rec ->
+         {
+         list.add( rec.asMap() );
+             
+         });
+        
+        
+         return list;
+    }//
     
 }

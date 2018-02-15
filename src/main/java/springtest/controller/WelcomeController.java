@@ -69,9 +69,12 @@ public class WelcomeController
 //        
 //        System.err.println("entrando a welcome cotroller HOMe");
         
-        
+        System.err.println("mostrando MAP: "+personBss.getPersonsMap().toString() );
         
         model.addAttribute("recordList", personBss.getPersons() );
+        
+        model.addAttribute("recordMap", personBss.getPersonsMap() );
+        
         
         model.addAttribute( "nombredeBSS" , personBss.getPerson().getName() );
         model.addAttribute( "libroMdeBSS" , bookMBss.getBookM().getBookName() );

@@ -20,6 +20,14 @@
             <li th:text="${per.name}"> </li>
         </ul>
         
+        <br />
+        <br />
+        <br />
+        
+        <ul th:each="rm:${recordMap}" >
+            <li th:text="${rm.person.name}"> </li>
+            <li th:text="${rm.person.lastName}"> </li>
+        </ul>
         
         <div th:insert="fragment/main.html :: footer"  />
         

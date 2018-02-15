@@ -6,6 +6,7 @@
 package springtest.controller.bss;
 
 import java.util.List;
+import java.util.Map;
 import org.neo4j.driver.v1.Record;
 import springtest.controller.dao.PersonDao;
 import springtest.model.Person;
@@ -38,6 +39,12 @@ public class PersonBssImpl implements PersonBss
     public List<Person> getPersons() 
     {
         return personDao.getPersons();
+    }
+
+    @Override
+    public List<Map<String, Object>> getPersonsMap() 
+    {
+        return personDao.getPersonsMap();
     }
     
 }
