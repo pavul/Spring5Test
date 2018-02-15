@@ -22,4 +22,8 @@ public interface PersonBss
      public List<Person> getPersons();
     
     public List< Map<String, Object>> getPersonsMap();
+    
+    public Map<String, Object> getPersonByName( String name );
+        
+        
 }

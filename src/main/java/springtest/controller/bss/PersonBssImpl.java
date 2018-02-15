@@ -5,6 +5,7 @@
  */
 package springtest.controller.bss;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.neo4j.driver.v1.Record;
@@ -45,6 +46,19 @@ public class PersonBssImpl implements PersonBss
     public List<Map<String, Object>> getPersonsMap() 
     {
         return personDao.getPersonsMap();
+    }
+
+    @Override
+    public Map<String, Object> getPersonByName(String name) 
+    {
+        //DAO accepts MAP
+        Map<String, Object> paramMap = new HashMap<>();
+        
+        //but we are getting name, so we add this name to be
+        //inserted in map
+        paramMap.put( "name", name );
+        
+        return personDao.getPersonByName(paramMap);
     }
     
 }

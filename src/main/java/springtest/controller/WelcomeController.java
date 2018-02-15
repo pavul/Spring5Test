@@ -76,8 +76,16 @@ public class WelcomeController
         model.addAttribute("recordMap", personBss.getPersonsMap() );
         
         
+        System.err.println("getName" + personBss.getPersonByName( "paul" ).toString());
+        model.addAttribute("getName", personBss.getPersonByName( "paul" ) );
+        
+        
         model.addAttribute( "nombredeBSS" , personBss.getPerson().getName() );
         model.addAttribute( "libroMdeBSS" , bookMBss.getBookM().getBookName() );
+        
+        
+        
+        
         
         return "home.html";
     }

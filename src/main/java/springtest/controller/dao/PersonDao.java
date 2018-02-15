@@ -24,5 +24,6 @@ public interface PersonDao
     
     public List< Map<String, Object>> getPersonsMap();
     
+    public Map<String, Object> getPersonByName( Map<String,Object> statementParameters );
     
 }//

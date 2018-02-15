@@ -83,5 +83,31 @@ public class PersonDaoImpl implements PersonDao
         
          return list;
     }//
+
+    @Override
+    public Map<String, Object> getPersonByName(Map<String, Object> statementParameters) 
+    {
+        
+        /**
+         * NOTA IMPORTANTE:
+         * al ejecutar un quiery co return properties(p), se regresa un map
+         * con el nombre de 'properties(p)', cuando thymeleaf intenta llamar a este nombre
+         * lo interpreta como si se estuviera llamando a un metodo, 
+         * 
+         * properties(p).name //es para llamar el query en thymeleaf, sin embargo
+         * saltara un error en el servlet puesto que dira que no hay algun metodo
+         * llamado properties(p) que acepte un parametro P, por lo que se tiene 
+         * que agregar un alias siempre a la consulta para que no haya error alguno
+         * 
+         * return properties(p) as person indicara al final que a "person" tendra
+         * valores, por ende se podra llamar en thymeleaf como:
+         * <span th:text="${VARNAME.person.name}" >span value</span>
+         * 
+         */
+        
+           return neo4jDriver.getInstance()
+                  .run( "match( p:Person)  where p.name = {name} return properties(p) as person", statementParameters ).single().asMap();
+        
+    }
     
 }
