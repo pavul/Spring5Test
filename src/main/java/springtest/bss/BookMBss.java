@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package springtest.controller.dao;
+package springtest.bss;
 
 import springtest.model.BookM;
 
@@ -11,15 +11,9 @@ import springtest.model.BookM;
  *
  * @author Mozart
  */
-public class BookMDaoImpl implements BookMDao
-{
-
-    @Override
-    public BookM getBookM(String bookName)
-    {
-        BookM bookM = new BookM();
-        bookM.setBookName(bookName);
-        return bookM;
-    }
+public interface BookMBss
+{   
+ 
+    public BookM getBookM();
     
 }

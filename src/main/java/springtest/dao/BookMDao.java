@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package springtest.controller.dao;
+package springtest.dao;
 
-import springtest.model.Book;
-
+import springtest.model.BookM;
 
 /**
  *
- * @author MiriamMarina
+ * @author Mozart
  */
-public interface BookDao {
-    
-    public Book getBook(String name);   
+public interface BookMDao
+{
+
+    public BookM getBookM(String bookName);
     
 }

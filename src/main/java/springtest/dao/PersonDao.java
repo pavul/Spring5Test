@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package springtest.controller.bss;
+package springtest.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -14,16 +14,16 @@ import springtest.model.Person;
  *
  * @author pavulzavala
  */
-public interface PersonBss 
+public interface PersonDao 
 {
-
-    public Person getPerson();
- 
-     public List<Person> getPersons();
+   
+    public Person getPerson(String name);
+    
+    public List<Person>  getPersons();
+    
     
     public List< Map<String, Object>> getPersonsMap();
     
-    public Map<String, Object> getPersonByName( String name );
-        
-        
-}
+    public Map<String, Object> getPersonByName( Map<String,Object> statementParameters );
+    
+}//

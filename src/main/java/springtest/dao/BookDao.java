@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package springtest.controller.bss;
+package springtest.dao;
 
-import springtest.model.BookM;
+import springtest.model.Book;
+
 
 /**
  *
- * @author Mozart
+ * @author MiriamMarina
  */
-public interface BookMBss
-{   
- 
-    public BookM getBookM();
+public interface BookDao {
+    
+    public Book getBook(String name);   
     
 }

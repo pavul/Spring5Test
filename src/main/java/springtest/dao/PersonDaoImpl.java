@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package springtest.controller.dao;
+package springtest.dao;
 
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;

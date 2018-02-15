@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package springtest.controller.bss;
+package springtest.bss;
 
 import springtest.model.BookM;
-import springtest.controller.dao.BookMDao;
+import springtest.dao.BookMDao;
 
 /**
  *
