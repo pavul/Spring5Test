@@ -3,7 +3,7 @@ apply plugin:"java"
 apply plugin:"war"
 
 
-archivesBaseName = "gradletest"
+archivesBaseName = "springtest"
 version = "0"
 
 sourceCompatibility = 1.8
@@ -36,7 +36,7 @@ dependencies {
     
 
     //ne4j driver
-    //compile group: 'org.neo4j.driver', name: 'neo4j-java-driver', version: '1.5.0'
+    compile group: 'org.neo4j.driver', name: 'neo4j-java-driver', version: '1.5.0'
 
     
     //spring 5
@@ -52,6 +52,13 @@ dependencies {
 
     //lombok
     compile "org.projectlombok:lombok:1.16.16"
+    
+    
+    //JSON.simple
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    
+    //servlet api to get web request and responses 
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.0'
     
   //dependencias de log4j
   //    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.5'
