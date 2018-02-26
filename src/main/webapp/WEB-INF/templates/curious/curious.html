@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--<script src="http://localhost:8080/gradletest-0/script/jquery-3.3.1.min.js"></script>-->
+        
+        
+        
+        
+
+
+    </head>
+    <body>
+        
+        <form id="loginform" action="/springtest-0/curious/" method="post" enctype="application/x-www-form-urlencoded" >
+            
+            <input type="submit" value="press" />
+        </form>
+        
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+     
+        <script type="text/javascript" >
+
+        $(document).ready(function()
+        {
+
+        //http://localhost:8080
+            $.get("/springtest-0/loadLogin", function(data, status)
+            {   
+                loadData("#loginform",data);
+
+            });
+
+        });
+        
+        
+        
+        
+        
+      /**
+       * 
+       * @param {type} elem html element to attach generated elements
+       * @param {type} data json object that contains all the data to parse
+       * @returns {undefined}
+       */
+        function loadData(elem, data )
+        {
+            
+                for( x = 0; x < data.length ; x++ )        
+                {
+                    var obj = data[ x ]; 
+
+                     var lmnt =  document.createElement( obj.html );
+                     
+                      //add type if input
+                     if( obj.html === "input" )
+                     {
+                         lmnt.setAttribute( "type", obj.type );
+                     }
+
+                    //setAllAttributes Here...
+                    addAttributes( lmnt, obj.prop );
+                     
+                     //if there is innerHTML, put it inside the element
+                     if( obj.inner.trim() !== "" && obj.inner.trim() !== undefined )
+                     {
+                         console.log("entra al trim");
+                         lmnt.text( obj.inner );
+                     }
+
+                     //adding childs to form
+                     document.querySelector( elem ).appendChild( lmnt );
+                     document.querySelector( elem ).appendChild( document.createElement("br") );
+                     
+
+                }
+ 
+                  
+        }//
+        
+        
+        /**
+         * this function add all attributes to defined element
+         * @param {type} elem html element that receives all the attributes
+         * @param {type} attrs attributes to pass
+         * @returns {undefined}
+         */
+        function addAttributes( elem, attrs )
+        {
+            console.log( attrs );
+//            for( i = 0; i < attrs.length; i++  )
+//            {
+//                console.log(  )
+////                elem.setAttribute( attrs.)
+//            }//
+
+        
+            for( var i in attrs )
+              {
+//              console.log( i ); // alerts key
+//              alert( attrs[i] ); //alerts key's value
+              
+                for( var j in attrs[ i ] )
+                {
+                    console.log( j );
+                    console.log( attrs[ i ][ j ] );
+                    elem.setAttribute( j, attrs[ i ][ j ] );
+                }
+              
+              
+              
+              }
+        
+        
+            
+        }//
+        
+        
+        /*
+         * 
+           function getMemberDetails(userID) {
+            $.ajax({
+                url: "../Handlers/GetMemberDetails.ashx",
+                data: { uID: userID },
+                dataType: "json",
+                async: false,
+                success: getMemberDetSucc,
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        }
+        function getMemberDetSucc(resultSet) {
+            $(resultSet).each(function (i, MemberData) {
+                alert(MemberData.strFName + " " + MemberData.strLName);
+                $('#memName').append('<td style="text-align:left"><label id="lbl_MemName">'+MemberData.strFName+" "+MemberData.strLName+'</label></td>');
+            })
+        }
+        $(document).ready(function () {
+            document.getElementById('showPopup').onclick = getDetails;
+            function getDetails() {
+                getMemberDetails("1");
+            }
+          });
+         * 
+         */
+        </script>
+    </body>
+</html>

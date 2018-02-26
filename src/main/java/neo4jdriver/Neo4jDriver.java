@@ -5,8 +5,6 @@
  */
 package neo4jdriver;
 
-import java.net.URI;
-import java.sql.Driver;
 import org.neo4j.driver.v1.AuthTokens;
 import org.neo4j.driver.v1.GraphDatabase;
 import org.neo4j.driver.v1.Session;
@@ -36,13 +34,22 @@ public class Neo4jDriver
     
     public Session getInstance( )
     {
-        
-        if( session == null )
+        try
         {
-           session = GraphDatabase.driver( this.uri, AuthTokens.basic( this.user, this.pass ) ).session();  
+            if( session == null )
+            {
+               session = GraphDatabase.driver( this.uri, AuthTokens.basic( this.user, this.pass ) ).session();  
+            }
+
+            return session;
         }
-    
-        return session;
+        catch(Exception e)
+        {
+        e.printStackTrace();
+        return null;
+        }
+        
+        
     }
    
     

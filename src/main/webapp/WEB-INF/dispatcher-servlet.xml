@@ -380,7 +380,7 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
     
     <bean
     id="personDao"
-    class="springtest.controller.dao.PersonDaoImpl" >
+    class="springtest.dao.PersonDaoImpl" >
         <!--injecting neo4jDriver-->
         <property name="neo4jDriver" ref="neo4jDriver" /> 
     </bean>
@@ -388,31 +388,31 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
    
     <bean
     id="personBss"
-    class="springtest.controller.bss.PersonBssImpl" >
+    class="springtest.bss.PersonBssImpl" >
         <property name="personDao" ref="personDao" /> 
     </bean> 
     
     <!-->BOOK M<-->
     <bean
     id="bookMDao"
-    class="springtest.controller.dao.BookMDaoImpl" >
+    class="springtest.dao.BookMDaoImpl" >
     </bean>
 
     <bean
     id="bookMBss"
-    class="springtest.controller.bss.BookMBssImpl" >
+    class="springtest.bss.BookMBssImpl" >
         <property name="bookMDao" ref="bookMDao" /> 
     </bean> 
 	
 	<!-->BOOK<-->
     <bean
     id="bookDao"
-    class="springtest.controller.dao.BookDaoImpl" >
+    class="springtest.dao.BookDaoImpl" >
     </bean>
 
     <bean
     id="bookBss"
-    class="springtest.controller.bss.BookBssImpl" >
+    class="springtest.bss.BookBssImpl" >
         <property name="bookDao" ref="bookDao" /> 
     </bean> 
     
@@ -429,9 +429,15 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
     </bean>
     
     
+    <!-- CONTROLADOR DE  LOGIN DE TEST-->
+    <bean 
+    id="loginController"
+    class="curious.controller.LoginController" >
+    </bean>
     
-    
-    
-    
+    <bean 
+    id="loginRestController"
+    class="curious.controller.LoginRestController" >
+    </bean>
     
 </beans>
