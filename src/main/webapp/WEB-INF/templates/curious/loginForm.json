@@ -1,24 +1,124 @@
 
             [{
-                "html":"input",
+                "element":"input",
                 "type":"text",
                 "inner":"",
+                "id":"username",
                 "prop":
                 [
                 {"name":"name"},
-                {"id":"namefield"},
                 {"placeholder":"name"} 
+                ],
+                "restricts":
+                [
+                { "required":true, "msg":"this field is required" },    
+                { "minlength":1, "msg":"minimum length 1" },    
+                { "maxlength":50 , "msg":"maximum length 50"}    
                 ]
                 
             },
             {
-                "html":"input",
+                "element":"input",
                 "type":"password",
                 "inner":"",
+                "id":"pass",
                 "prop":
                 [
                 {"name":"password"},
-                {"id":"pass"},
                 {"placeholder":""} 
+                ],
+                "restricts":
+                [
+                { "required":true , "msg":"this field is required"},    
+                { "minlength":1 , "msg":"minimum length 1"},    
+                { "maxlength":25, , "msg":"maximum length 25" }    
                 ]
-            }]
+            },
+            {
+                "element":"input",
+                "type":"radio",
+                "inner":"",
+                "id":"pass",
+                "prop":
+                [
+                {"name":"topic"},
+                {"value":"birds"},
+                {"placeholder":""} 
+                ],
+                "restricts":
+                [
+                { "required":true , "msg":"this field is required"},    
+                { "minlength":1 , "msg":"minimum length 1"},    
+                { "maxlength":25, , "msg":"maximum length 25" }    
+                ]
+            },
+            {
+                "element":"input",
+                "type":"radio",
+                "inner":"",
+                "id":"pass",
+                "prop":
+                [
+                {"name":"topic"},
+                {"value":"fishes"},
+                {"checked":"true"} 
+                ],
+                "restricts":
+                [
+                { "required":true , "msg":"this field is required"},    
+                { "minlength":1 , "msg":"minimum length 1"},    
+                { "maxlength":25, , "msg":"maximum length 25" }    
+                ]
+            },
+            {
+                "element":"input",
+                "type":"radio",
+                "inner":"",
+                "id":"pass",
+                "prop":
+                [
+                {"name":"topic"},
+                {"value":"mamals"},
+                {"checked":"false"} 
+                ],
+                "restricts":
+                [
+                { "required":true , "msg":"this field is required"},    
+                { "minlength":1 , "msg":"minimum length 1"},    
+                { "maxlength":25, , "msg":"maximum length 25" }    
+                ]
+            },
+            {
+                "element":"input",
+                "type":"submit",
+                "id":"submitBtn",
+                "inner":"",
+                "prop":
+                [
+                {"name":"submit"},
+                {"value":"push"}, 
+                {"onclick":"validate('');"} 
+                ]
+               /* , estas restriciones no se aplica para este boton
+                "restricts":
+                [
+                { "required":true , "msg":"this field is required"},    
+                { "minlength":1 },    
+                { "maxlength":25 }       
+                ] */
+            }
+            ]
+
+
+
+/*
+
+restrictions:
+        are the rules for each element to validate in JS
+
+fieldName : is the field to validate
+toValidate: is the value of the field that is gonna be validated
+validationValue: is the rule that will be applied to 'toValidate'
+errorMsg: is the error message the will be shown if the validation is false
+
+*/

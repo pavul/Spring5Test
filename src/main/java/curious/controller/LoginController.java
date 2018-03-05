@@ -32,7 +32,7 @@ public class LoginController
     {
         
         System.err.println("entrando datos: "+req.getParameter( "name" ) );
-        System.err.println("entrando datos: "+req.getParameter( "pass" ) );
+        System.err.println("entrando datos: "+req.getParameter( "password" ) );
         
        return "curious/curious.html"; 
     }//

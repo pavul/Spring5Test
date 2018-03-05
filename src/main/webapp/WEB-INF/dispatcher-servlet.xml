@@ -366,7 +366,7 @@ class="org.springframework.context.support.ReloadableResourceBundleMessageSource
     
     
     <!--INYECCION DE DEPENDENCIAS-->
-    
+    <!--<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"  />-->
     
     <!--Driver connection to Neo4J database-->
     <bean

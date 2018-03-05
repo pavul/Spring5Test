@@ -18,6 +18,10 @@
     <!--<context:component-scan base-package="springtest.*, me.example" />--> 
     <context:component-scan base-package="springtest.*" /> 
     
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/">
+        <mvc:resource-chain resource-cache="false" />
+    </mvc:resources>
+    
 <!--    <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
           p:location="/WEB-INF/jdbc.properties" />-->

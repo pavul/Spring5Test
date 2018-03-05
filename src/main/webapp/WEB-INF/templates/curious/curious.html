@@ -14,24 +14,37 @@
     </head>
     <body>
         
+        <div id="errorMsg" > </div>
         <form id="loginform" action="/springtest-0/curious/" method="post" enctype="application/x-www-form-urlencoded" >
             
-            <input type="submit" value="press" />
+            
+                
         </form>
         
-        
+<!--        <script type="text/javascript"
+                src="/webjars/jquery/3.3.1-1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>-->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
      
         <script type="text/javascript" >
+
+
+        //this object will contain the the whole definition to work with.
+        var definition = undefined;
 
         $(document).ready(function()
         {
 
         //http://localhost:8080
-            $.get("/springtest-0/loadLogin", function(data, status)
+            $.get("/springtest-0/loadLogin", function( data, status )
             {   
+//                console.log( status );
+//                if( status === "200" )
+//                {
+                definition = data;
                 loadData("#loginform",data);
-
+//                }
+                
             });
 
         });
@@ -46,19 +59,25 @@
        * @param {type} data json object that contains all the data to parse
        * @returns {undefined}
        */
-        function loadData(elem, data )
+        function loadData( elem, data )
         {
             
                 for( x = 0; x < data.length ; x++ )        
                 {
                     var obj = data[ x ]; 
 
-                     var lmnt =  document.createElement( obj.html );
+                     var lmnt =  document.createElement( obj.element );
                      
                       //add type if input
-                     if( obj.html === "input" )
+                     if( obj.element === "input" )
                      {
                          lmnt.setAttribute( "type", obj.type );
+                     }
+
+                    //set ID to element if is not undefined
+                    if( obj.id !== undefined )
+                     {
+                         lmnt.setAttribute( "id", obj.id );
                      }
 
                     //setAllAttributes Here...
@@ -67,14 +86,15 @@
                      //if there is innerHTML, put it inside the element
                      if( obj.inner.trim() !== "" && obj.inner.trim() !== undefined )
                      {
-                         console.log("entra al trim");
+                         console.log( "entra al trim" );
                          lmnt.text( obj.inner );
                      }
 
                      //adding childs to form
                      document.querySelector( elem ).appendChild( lmnt );
-                     document.querySelector( elem ).appendChild( document.createElement("br") );
                      
+                     //this is to add a breaking line to the form elements
+                     document.querySelector( elem ).appendChild( document.createElement( "br" ) );
 
                 }
  
@@ -90,33 +110,90 @@
          */
         function addAttributes( elem, attrs )
         {
-            console.log( attrs );
-//            for( i = 0; i < attrs.length; i++  )
-//            {
-//                console.log(  )
-////                elem.setAttribute( attrs.)
-//            }//
-
-        
+//            console.log( attrs );
+            
             for( var i in attrs )
               {
-//              console.log( i ); // alerts key
-//              alert( attrs[i] ); //alerts key's value
-              
+  
                 for( var j in attrs[ i ] )
                 {
-                    console.log( j );
-                    console.log( attrs[ i ][ j ] );
+//                    console.log( j );
+//                    console.log( attrs[ i ][ j ] );
                     elem.setAttribute( j, attrs[ i ][ j ] );
                 }
               
-              
-              
               }
-        
-        
             
         }//
+        
+        
+       /**
+        * * this function will validate the whole form
+        * field by field and will show error message in 
+        * defined errorElement
+        * @param {type} errorElem
+        * @returns {undefined}
+        */
+        function validate( errorElem )
+        {
+            
+            for( x = 0; x < definition.length ; x++ )        
+                {
+                    var obj = definition[ x ]; 
+                    
+                    //console.log( obj )
+
+                // if some field have restrictions
+                if( obj.restricts !== undefined )
+                {
+                    var rest = obj.restricts;
+                   
+                    //console.log(rest)
+                
+                    rest.forEach( function( val, i )
+                    {
+                        
+                        for( var y in val )
+                        {        
+                          console.log( "ind "+i+" key: "+y+" val: "+val[ y ]  );
+                        
+                            switch( y )
+                            {
+                                
+                case "required":
+                    //validate if is required field
+                    if( val[ y ] )
+                    {
+                       /* var elemId = document.getElementById( obj.id );
+                        if( elemId.  )
+                        {
+                            
+                        }
+                        */
+                    }
+                    
+                    break;
+                                
+                                
+                            }//
+        
+                }
+                        
+                    });
+                    
+                    
+                }
+                    
+
+
+                }//
+            
+            //this is for test only, should return true
+            //to submit form
+            return false;
+            
+        }//
+        
         
         
         /*
