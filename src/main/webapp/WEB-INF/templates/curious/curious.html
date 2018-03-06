@@ -143,8 +143,10 @@
                 {
                     var rest = obj.restricts;
                    
-                    //console.log(rest)
-                
+                    //if there are restrictions
+                    //get the elementID to validate
+                   var elemId = document.getElementById( obj.id );
+                    
                     rest.forEach( function( val, i )
                     {
                         
@@ -156,21 +158,67 @@
                             {
                                 
                 case "required":
-                    //validate if is required field
+                    //en: validate if is required field can be everything
                     if( val[ y ] )
                     {
-                       /* var elemId = document.getElementById( obj.id );
-                        if( elemId.  )
-                        {
-                            
-                        }
-                        */
+                        if( elemId.value.trim() === "" || elemId.value.trim() === undefined )
+                        { return false; /*get here message*/ }   
                     }
-                    
                     break;
-                                
-                                
-                            }//
+                case "minlength":
+                    //en: check the minimun length allowed for a field
+                    {
+                      if( elemId.value.trim().length > val[ y ] ){ return false; } 
+                    }
+                case "maxlength":
+                    //en: check the maximun length allowed for a field
+                    {
+                      if( elemId.value.trim().length < val[ y ] ){ return false; } 
+                    }
+                    break;
+               case "numeric":
+                     if( val[ y ] )
+                     {
+                     //en: check if the value is a number
+                     if( !isFinite( elemId.value.trim() ) ){ return false; }               
+                     }///
+                    break;
+               case "sameas":
+                     //en: check if this value is the same as expected
+                     if(  elemId.value.trim() === val[ y ] ){return false; }
+                    break;           
+               case "lessthan":
+                    //en: check if the numeric value it has a value less than expected
+                    if( !isFinite( elemId.value.trim() ) | elemId.value.trim() >= val[ y ] ){ return false; }
+                    break;
+               case "mayorthan":
+                    //en: check if the numeric value it has a value mayor than expected
+                    if( !isFinite( elemId.value.trim() ) | elemId.value.trim() <= val[ y ] ){ return false; }
+                    break;
+               case "email":
+                    //en: check that value has an email format, NOTE: this is a basic validation
+                    //if you need something more specific, use 'regexp' rule instead
+                    if( val[ y ] )
+                    {
+                    if( !elemId.value.trim().match( /\S+@\S+\.\S+/ )  ){ return false; }
+                    }
+                    break;
+               case "regexp":
+                    //en: check that value is accepted for regexp
+                    ///^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    //return re.test(String(email).toLowerCase());
+                    var re = val[ y ];
+                    if( !re.test( elemId.value.trim().toLowerCase() ) ){ return false; }
+                    break;
+               case "custom":
+                    //en: check for custom validations, NOTE: stablish the method to call here, but those must be declared
+                    //in this or others js scripts
+                    break;
+               //case "":
+               //     break;
+                                    
+                                    
+                            }//suich
         
                 }
                         
