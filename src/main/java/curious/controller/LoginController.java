@@ -21,7 +21,6 @@ public class LoginController
      @RequestMapping(value = "/curious", method = RequestMethod.GET )
     public String home( ) 
     {
-        
        return "curious/curious.html"; 
     }//
     
@@ -34,9 +33,17 @@ public class LoginController
         System.err.println("entrando datos: "+req.getParameter( "name" ) );
         System.err.println("entrando datos: "+req.getParameter( "password" ) );
         
+        
        return "curious/curious.html"; 
     }//
     
+    
+    
+    @RequestMapping(value = "/splash", method = RequestMethod.GET )
+    public String splash( ) 
+    {
+       return "webtemplate/contact.html"; 
+    }//
     
     
 }//

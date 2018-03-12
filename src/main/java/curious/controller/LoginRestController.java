@@ -5,9 +5,6 @@
  */
 package curious.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-import org.json.simple.JSONObject;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,9 +33,10 @@ public class LoginRestController
         
 //        JSONObject jsonobj = new JSONObject( mapList );
     
-                
         //return jsonobj .toJSONString();
-        return "[{\"element\":\"input\",\"type\":\"text\",\"inner\":\"\",\"id\":\"username\",\"prop\":[{\"name\":\"name\"},{\"placeholder\":\"name\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":50,\"msg\":\"maximum length 50\"}]},{\"element\":\"input\",\"type\":\"password\",\"inner\":\"\",\"id\":\"pass\",\"prop\":[{\"name\":\"password\"},{\"placeholder\":\"\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"radio\",\"inner\":\"\",\"id\":\"pass\",\"prop\":[{\"name\":\"topic\"},{\"value\":\"birds\"},{\"placeholder\":\"\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"radio\",\"inner\":\"\",\"id\":\"pass\",\"prop\":[{\"name\":\"topic\"},{\"value\":\"fishes\"},{\"checked\":\"true\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"radio\",\"inner\":\"\",\"id\":\"pass\",\"prop\":[{\"name\":\"topic\"},{\"value\":\"mamals\"},{\"checked\":\"false\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"submit\",\"id\":\"submitBtn\",\"inner\":\"\",\"prop\":[{\"name\":\"submit\"},{\"value\":\"push\"},{\"onclick\":\"validate('');\"}]}]";
+     
+        
+        return "[{\"element\":\"input\",\"type\":\"text\",\"inner\":\"\",\"id\":\"username\",\"prop\":[{\"name\":\"name\"},{\"placeholder\":\"name\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":50,\"msg\":\"maximum length 50\"}]},{\"element\":\"input\",\"type\":\"password\",\"inner\":\"\",\"id\":\"pass\",\"prop\":[{\"name\":\"password\"},{\"placeholder\":\"\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"radio\",\"inner\":\"\",\"id\":\"radio1\",\"prop\":[{\"name\":\"topic\"},{\"value\":\"birds\"},{\"placeholder\":\"\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"radio\",\"inner\":\"\",\"id\":\"radio2\",\"prop\":[{\"name\":\"topic\"},{\"value\":\"fishes\"},{\"checked\":\"true\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"radio\",\"inner\":\"\",\"id\":\"radio3\",\"prop\":[{\"name\":\"topic\"},{\"value\":\"mamals\"},{\"checked\":\"false\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"submit\",\"id\":\"submitBtn\",\"inner\":\"\",\"prop\":[{\"name\":\"submit\"},{\"value\":\"push\"},{\"onclick\":\" validate(testCallback); return false;\"}]}]";
                 
                 }
         

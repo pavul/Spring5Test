@@ -31,14 +31,14 @@
                 [
                 { "required":true , "msg":"this field is required"},    
                 { "minlength":1 , "msg":"minimum length 1"},    
-                { "maxlength":25, , "msg":"maximum length 25" }    
+                { "maxlength":25, "msg":"maximum length 25" }    
                 ]
             },
             {
                 "element":"input",
                 "type":"radio",
                 "inner":"",
-                "id":"pass",
+                "id":"radio1",
                 "prop":
                 [
                 {"name":"topic"},
@@ -49,14 +49,14 @@
                 [
                 { "required":true , "msg":"this field is required"},    
                 { "minlength":1 , "msg":"minimum length 1"},    
-                { "maxlength":25, , "msg":"maximum length 25" }    
+                { "maxlength":25, "msg":"maximum length 25" }    
                 ]
             },
             {
                 "element":"input",
                 "type":"radio",
                 "inner":"",
-                "id":"pass",
+                "id":"radio2",
                 "prop":
                 [
                 {"name":"topic"},
@@ -67,14 +67,14 @@
                 [
                 { "required":true , "msg":"this field is required"},    
                 { "minlength":1 , "msg":"minimum length 1"},    
-                { "maxlength":25, , "msg":"maximum length 25" }    
+                { "maxlength":25, "msg":"maximum length 25" }    
                 ]
             },
             {
                 "element":"input",
                 "type":"radio",
                 "inner":"",
-                "id":"pass",
+                "id":"radio3",
                 "prop":
                 [
                 {"name":"topic"},
@@ -85,7 +85,7 @@
                 [
                 { "required":true , "msg":"this field is required"},    
                 { "minlength":1 , "msg":"minimum length 1"},    
-                { "maxlength":25, , "msg":"maximum length 25" }    
+                { "maxlength":25, "msg":"maximum length 25" }    
                 ]
             },
             {
@@ -99,13 +99,7 @@
                 {"value":"push"}, 
                 {"onclick":"validate('');"} 
                 ]
-               /* , estas restriciones no se aplica para este boton
-                "restricts":
-                [
-                { "required":true , "msg":"this field is required"},    
-                { "minlength":1 },    
-                { "maxlength":25 }       
-                ] */
+               
             }
             ]
 

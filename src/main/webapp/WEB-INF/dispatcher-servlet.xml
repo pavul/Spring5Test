@@ -70,6 +70,12 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
 </bean>-->
 
 
+<!--este no se para que sirve hay que checar primero-->
+<!--<mvc:default-servlet-handler/>-->
+
+    <!--<mvc:resources mapping="/resource/**" location="/resource/" />-->
+<!--<mvc:resources mapping="/resources/*" location="classpath:/resources/" />-->
+
 <!--beans para i18n-->
 <bean id="messageSource"
 class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
