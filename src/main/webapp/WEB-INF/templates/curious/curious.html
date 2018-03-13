@@ -70,6 +70,13 @@
                          lmnt.setAttribute( "type", obj.type );
                      }
 
+
+                    //add name attr of element
+                     if( obj.name !== undefined )
+                     {
+                         lmnt.setAttribute( "name", obj.name );
+                     }
+
                     //set ID to element if is not undefined
                     if( obj.id !== undefined )
                      {
@@ -82,7 +89,7 @@
                      //if there is innerHTML, put it inside the element
                      if( obj.inner.trim() !== "" && obj.inner.trim() !== undefined )
                      {
-                         lmnt.text( obj.inner );
+                         lmnt.innerHTML( obj.inner );
                      }
 
 
