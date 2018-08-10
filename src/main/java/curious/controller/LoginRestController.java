@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginRestController 
 {
    
-        //if this is inside restcontroller, its not necesary to put
+    //if this is inside restcontroller, its not necesary to put
     //ResponseBody
     @RequestMapping(value = "/loadLogin", 
             method = RequestMethod.GET,
@@ -33,13 +33,10 @@ public class LoginRestController
         
 //        JSONObject jsonobj = new JSONObject( mapList );
     
-        //return jsonobj .toJSONString();
-     
+         //return jsonobj .toJSONString();
         
         return "[{\"element\":\"input\",\"type\":\"text\",\"inner\":\"\",\"id\":\"username\",\"name\":\"name\",\"prop\":[{\"placeholder\":\"name\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":50,\"msg\":\"maximum length 50\"}]},{\"element\":\"input\",\"type\":\"password\",\"inner\":\"\",\"id\":\"pass\",\"name\":\"password\",\"prop\":[{\"placeholder\":\"\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"radio\",\"inner\":\"\",\"id\":\"radio1\",\"name\":\"topic\",\"prop\":[{\"value\":\"birds\"},{\"placeholder\":\"\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"radio\",\"inner\":\"\",\"id\":\"radio2\",\"name\":\"topic\",\"prop\":[{\"value\":\"fishes\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"radio\",\"inner\":\"\",\"id\":\"radio3\",\"name\":\"topic\",\"prop\":[{\"value\":\"mamals\"}],\"restricts\":[{\"required\":true,\"msg\":\"this field is required\"},{\"minlength\":1,\"msg\":\"minimum length 1\"},{\"maxlength\":25,\"msg\":\"maximum length 25\"}]},{\"element\":\"input\",\"type\":\"submit\",\"id\":\"submitBtn\",\"name\":\"submit\",\"inner\":\"\",\"prop\":[{\"value\":\"push\"},{\"onclick\":\"validate(testCallback); \"}]}]";
                 
                 }
-        
-     
     
 }//

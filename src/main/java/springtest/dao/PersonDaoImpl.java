@@ -102,7 +102,6 @@ public class PersonDaoImpl implements PersonDao
          * <span th:text="${VARNAME.person.name}" >span value</span>
          * 
          */
-        
            return neo4jDriver.getInstance()
                   .run( "match( p:Person)  where p.name = {name} return properties(p) as person", statementParameters ).single().asMap();
         

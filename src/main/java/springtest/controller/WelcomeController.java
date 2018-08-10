@@ -5,12 +5,6 @@
  */
 package springtest.controller;
 
-import java.net.URI;
-import java.util.List;
-import org.neo4j.driver.v1.AuthTokens;
-import org.neo4j.driver.v1.GraphDatabase;
-import org.neo4j.driver.v1.Record;
-import org.neo4j.driver.v1.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,13 +53,10 @@ public class WelcomeController
 //        }//
         
 //          List<String> nameList = new ArrayList<>();
-//  
 //            nameList.add( "name1" );
 //            nameList.add( "name2" );
 //            nameList.add( "name3" );
-//            
 //            model.addAttribute( "nameList" ,nameList );
-//            
 //        
 //        System.err.println("entrando a welcome cotroller HOMe");
         
@@ -82,10 +73,6 @@ public class WelcomeController
         
         model.addAttribute( "nombredeBSS" , personBss.getPerson().getName() );
         model.addAttribute( "libroMdeBSS" , bookMBss.getBookM().getBookName() );
-        
-        
-        
-        
         
         return "home.html";
     }

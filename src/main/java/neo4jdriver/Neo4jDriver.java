@@ -49,15 +49,6 @@ public class Neo4jDriver
         return null;
         }
         
-        
     }
-   
-    
-    
-//    public static void close()
-//    {
-//        neoDriver.close();
-//    } 
-    
     
 }//
